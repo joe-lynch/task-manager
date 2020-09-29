@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
-var dbURI = 'mongodb://agilewebproject:awp@ds237707.mlab.com:37707/doable'; 
+// removed line for security
+
 //var dbURI = 'mongodb://localhost/doable';
 mongoose.connect(dbURI);
 
