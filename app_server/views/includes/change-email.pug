@@ -1,0 +1,11 @@
+#change-email-popup.popup
+	form.popup-content(action='/update_email' method='POST')
+		// Close button
+		span.close(title='Close' onclick="hide('change-email-popup');")
+			| &times;
+		#form-change-email.container
+			h2 Change Email
+			label(for='email') New Email Address
+			input#email(type='email' placeholder='New email address' name='email' required='')
+			button.button-main(type='submit') Save and Log-Out
+			div(style='clear: both;')

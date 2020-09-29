@@ -1,0 +1,55 @@
+#form-user-details.container
+    h2 Your Details
+    .text-centre
+        h5#expertiseText(style={'color': 'red'})
+    - var checked
+    if (!user)
+        - var first_name = ''
+        - var last_name = ''
+        - var mobile = ''
+        - var education = ''
+        - var expertise_list = []
+    else
+        - var first_name = user.first_name
+        - var last_name = user.last_name
+        - var mobile = user.mobile
+        - var education = user.education
+        - var expertise_list = user.expertise
+    label(for='fname') First Name
+    input#first(type='text' placeholder='John' name='fname' required='' value=first_name)
+    label(for='fname') Last Name
+    input#last(type='text' placeholder='Smith' name='lname' required='' value=last_name)
+    label(for='mobile') Mobile Number
+    input(type='tel' name='mobile' placeholder='04xxxxxxxx' required pattern='\\d{10}' value=mobile)
+    label(for='education') Education
+    select(name='education')
+        option(value="High School", selected=education == "High School") High School
+        option(value="Undergraduate", selected=education == "Undergraduate") Undergraduate
+        option(value="Postgraduate", selected=education == "Postgraduate") Postgraduate
+        option(value="Ph.D", selected=education == "Ph.D") Ph.D
+    label(for='role') Expertise
+    // TO BE EXPANDED
+    ul.expertise
+        li
+        - checked = (expertise_list.includes('application') ? true : false)
+            input#cb2.checklist(type='checkbox' name='expertise' value='application' checked=checked)
+            label(for='cb2') Application
+        li
+        - checked = (expertise_list.includes('database') ? true : false)
+            input#cb3.checklist(type='checkbox' name='expertise' value='database' checked=checked)
+            label(for='cb3') Database
+        li
+        - checked = (expertise_list.includes('embedded') ? true : false)
+            input#cb4.checklist(type='checkbox' name='expertise' value='embedded' checked=checked)
+            label(for='cb4') Embedded
+        li
+        - checked = (expertise_list.includes('mobile') ? true : false)
+            input#cb5.checklist(type='checkbox' name='expertise' value='mobile' checked=checked)
+            label(for='cb5') Mobile
+        li
+        - checked = (expertise_list.includes('web') ? true : false)
+            input#cb6.checklist(type='checkbox' name='expertise' value='web' checked=checked)
+            label(for='cb6') Web
+    //- label
+    //- button.button-main(type='submit') Save Details
+    //- div(style='clear: both;')

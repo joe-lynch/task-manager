@@ -1,0 +1,25 @@
+#project-popup.popup
+	form.popup-content(action='/create_project' method='POST')
+		// Close button
+		span.close(title='Close' onclick="hide('project-popup');")
+			| &times;
+		#form-project-details.container
+			h2 Project Details
+			label(for='project_name') Project Name
+			input#project-name(type='text' placeholder='Write a short summary for your task' name='project_name' required)
+			label(for='project_description') Project Description
+			input#project-description(type='text' placeholder='Place a more extensive project description here' name='project_description')
+			label(for='project_start_date') Kick-off Date
+			input#kickoff-date(type='date' name='project_start_date')
+			label(for='project_end_date') End Date
+			input#end-date(type='date' name='project_end_date')
+			label(for='project_users') Invite Users
+			input#invite-user(type='email' name = 'project_users')
+			a(href='') Invite more users
+			- if(projects[curr] != undefined){
+				input(type='hidden' value=projects[curr]._id name='project_id')
+			- }
+			// To be linked to javascript which adds a new field
+			button.button-main(type='submit') Save Project
+			button.red-button(type='reset' onclick="hide('card-popup'); deleteConfirm('project');") Delete Project
+			div(style='clear: both;')

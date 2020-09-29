@@ -1,0 +1,52 @@
+#card-popup.popup
+	form.popup-content(action='/create_task' method='POST')
+		// Close button
+		span.close(title='Close' onclick="hide('card-popup');")
+			| &times;
+		#form-card-basics.container
+			h2 Task Details
+			label(for='task_name') Task Name
+			input#task-name(type='text' placeholder='Write a short summary for your task' name='task_name' required)
+			label(for='task_description') Description
+			input#task-description(type='text' placeholder='Place a more extensive task description here' name='task_description')
+			label(for='required_skills') Required Skills
+			ul.expertise
+				li
+					input#cb_2.checklist(type='checkbox' name='required_skills' value='application' checked=checked)
+					label(for='cb_2') Application
+				li
+					input#cb_3.checklist(type='checkbox' name='required_skills' value='database' checked=checked)
+					label(for='cb_3') Database
+				li
+					input#cb_4.checklist(type='checkbox' name='required_skills' value='embedded' checked=checked)
+					label(for='cb_4') Embedded
+				li
+					input#cb_5.checklist(type='checkbox' name='required_skills' value='mobile' checked=checked)
+					label(for='cb_5') Mobile
+				li
+					input#cb_6.checklist(type='checkbox' name='required_skills' value='web' checked=checked)
+					label(for='cb_6') Web
+			label(for='assigned_to') Assigned To
+			fieldset#assigned-to
+				input(list='assign-users' name='assigned_to' placeholder='Type a username here' onkeyup='' required)
+				a#suggest + suggest an assignee
+				datalist(id="assign-users")
+			label(for='task_due_date') Due Date
+			input#task-due-date(type='date' name='task_due_date' required)
+			label(for='task_priority') Task priority
+			select#priority(name='task_priority' required)
+				option(value='') Choose
+				option(value='urgent') Urgent
+				option(value='high' selected='') High
+				option(value='low') Low
+				option(value='trivial') Trivial
+			label(for='task_estimated_hours') Estimated Hours
+			input#estimate(type='number' name='task_estimated_hours' min = 0)
+			input#task_index(type='hidden' value='0' name='task_index')
+			- if(projects[curr] != undefined){
+				input(type='hidden' value=projects[curr]._id name='parent_project')
+				input#original_task_name(type='hidden', value="" name='original_task_name')
+			- }
+			button.button-main(type='submit') Save Task
+			button.red-button(type='reset' onclick="hide('card-popup'); deleteConfirm('task');") Delete Task
+			div(style='clear: both;')

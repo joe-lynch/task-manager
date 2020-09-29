@@ -1,0 +1,610 @@
+/* COLOR PALETTE 
+    --Off-white: #f0f0f0;
+    --Khaki       HEX: #eaece5
+    Teal        HEX: #b2c2bf
+    Light-green HEX: #a0c2bf
+    Dark-green  HEX: #3b3a30
+*/
+
+/* GENERAL BODY FORMATTING */
+html {
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    margin: 0;
+    background-color: #a0c2bf;
+}
+
+input {
+    outline-color: #aaa;
+}
+
+/* HEADER FORMATTING */
+header {
+    background-color: #3b3a30;
+    overflow: hidden;
+    height: 50px;
+	padding: 0px 10px;
+	width: 100%;
+	display: inline-flex;
+	justify-content: space-between;
+}
+
+#header-logo {
+    margin: 12px;
+    padding: 0px;
+    display: block;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+.topnav {
+    float: right;
+    display: block;
+    padding: 0;
+    overflow: hidden;
+}
+
+.topnav a {
+    color: #a0c2bf;
+    text-align: center;
+    margin: auto;
+    padding: 0px 16px 16px 0px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.topnav a:hover {
+    opacity: 0.8;
+    color: white;
+}
+
+
+/* topnav dropdown */
+.dropdown {
+    overflow: hidden;
+  }
+
+.dropdown .dropbtn {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    background-color: #3b3a30;
+    display: none;
+    position: absolute;
+    right: 0;
+    min-width: 160px;
+    border-top: 10px;
+    box-shadow: 0px 8px 16px 0px #aaa;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+/* Status bar formatting */
+.status-bar {
+	margin: 5px;
+	padding: 10px;
+	height: 40px;
+	width: 50%;
+	min-width: 200px;
+	text-align: center;
+	border-radius: 1%;
+	background: rgba(170, 170, 170, 0.127);
+	color: #ff0000;
+	box-shadow: #d2d5cf;
+	display: none;
+	justify-content: center;
+}
+
+.status-bar > p {
+	vertical-align: middle;
+}
+
+/* FOOTER FORMATTING */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    padding: 0px 15px;
+    background-color: #3b3a30;
+    overflow: hidden;
+    text-align: left;
+}
+
+footer p, footer h5 {
+    color: white;
+    margin: 20px 0px;
+}
+
+.author {
+    float: left;
+}
+
+#changelog-button {
+    float: right;
+}
+
+/* TEXT FORMATTING */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+    color: #3b3a30;
+    font-family: 'Raleway', 'sans-serif';
+}
+
+#no-projects-text {
+    text-align: center;
+}
+
+.text-centre {
+    text-align: center;
+}
+
+.expertise {
+	list-style-type: none;
+}
+
+.expertise > li > input {
+	float: left;
+}
+
+/* LAYOUT FORMATTING */
+
+.main-window {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    padding: 15px;
+    height: 100%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: 40px; /* Changed by javascript */
+    overflow: auto;
+}
+
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+.centred {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+.landing-container {
+    width: 100%;
+    min-width: 400px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-family: 'Satisfy', 'sans-serif';
+    text-shadow: 2px 2px 2px #aaa;
+    color: white;
+    padding: 0px 16px;
+    margin: 0;
+}
+
+/* KANBAN */
+.kanban-column {
+    position: relative;
+    display: inline-block;
+    margin: 5px 1% 5px 1%;
+    width: 31%;
+    min-width: 200px;
+    min-height: 120px;
+    max-height: 90%;
+    border-radius: 10px;
+    background: #e0e5da;
+    box-shadow: 0px 2px 2px 0px #aaa;
+    overflow: hidden;
+}
+
+.kanban-header {
+    margin: auto;
+    min-height: 50px;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.kanban-add-card {
+    float: right;
+    font-weight: bolder;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.kanban-card-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 50px;
+    display: block;
+    width: auto;
+    max-height: inherit;
+    margin: 0px;
+    overflow-y: scroll;
+}
+
+.kanban-card {
+    display: block;
+    margin: 8px;
+    padding: 0px 10px;
+    width: auto;
+    min-height: 20px;
+    max-height: 180px;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0px 1px 1px 0px #aaa;
+    /* transition: margin-top 0.4s; */
+}
+
+.kanban-card:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+#suggest:hover {
+    color:red;
+    cursor:pointer;
+}
+
+/* SIDENAV FORMATTING  */
+.sidenav {
+    width: 40px; /* Changed with javascript*/
+    height: calc(100% - 100px);
+    position: fixed;
+    margin: 50px 0px;
+    z-index: 1;
+    top: 0px;
+    left: 0;
+    background-color: #434c3c;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 5px; 
+    padding-left: 5px;
+    transition: 0.5s; 
+}
+
+#sidenav-menu {
+    display: none; /* Changed with javascript*/
+    transition: 0.4s;
+}
+
+.sidenav-menu a {
+    display: block;
+    font-size: 16px;
+    background: none;
+    width:100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    margin: 0px;
+    padding: 6px;
+    color: #f0f0f0;
+    border: none;
+    clear: right;
+}
+.sidenav-menu > a {
+    margin-top: 60px;
+    font-size: 20px;
+}
+
+.sidenav a:hover {
+    color: white;
+}
+
+.sidenav-dropdown-content {
+    display: none;
+    padding-left: 15px;
+    word-wrap:break-word;
+}
+
+.sidenav-button {
+    position: absolute;
+    display: block;
+    right: 0px;
+    cursor: pointer;
+    margin: 2px 6px 20px 0;
+}
+
+.sidenav-button:hover, .edit-icon.hover {
+    opacity: 0.8;
+}
+
+.sidenav-button > * {
+    width: 25px;
+    height: 4px;
+    background-color: #f0f0f0;
+    margin: 6px 2px;
+    transition: 0.4s;
+}
+
+fieldset {
+	border: none;
+	margin: 0;
+	padding: 0, 0, 0, 10px;
+	align-items: center;
+}
+
+
+fieldset > a {
+	padding-top: 0;
+	margin-top: 0;
+	margin-bottom: 10px;
+	text-align: left;
+	color:#a0c2bf;
+}
+
+fieldset > .left {
+	float: left;
+}
+
+fieldset > .right {
+	float: right;
+}
+
+.edit-icon {
+	float: right;
+	padding-right: 5px;
+	cursor: pointer;
+	color: #f0f0f0;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    transform: rotate(-45deg) translate(-8px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    transform: rotate(45deg) translate(-7px, -7px) ;
+}
+
+/* BUTTON FORMATTING */
+button {
+    font-family: inherit;
+    font-size: 1.2rem;
+    color: #3b3a30;
+    outline-color: #aaa;
+    background-color: #f0f0f0;
+    color: #3b3a30;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+.landing-container button {
+    width: 200px;
+    box-shadow: 0px 2px 16px 0px #aaa;
+    margin: 10px;
+}
+
+.container {
+    padding: 20px;
+}
+
+/*FORM FORMATTING */
+/* Form border */
+form {
+    border: 3px solid #aaa;
+    min-width: 300px;
+}
+
+form h2 {
+    text-align: center;
+}
+
+/* form inputs */
+form input:not(.remember):not(.checklist) {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 12px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+form button {
+    color: white;
+    float: right;
+    margin-left: 10px;
+}
+
+.prev-button {
+	float: left;
+	margin-left: 10px;
+}
+
+.next-button {
+	float: right;
+	margin-right: 10px;
+}
+
+.button-main {
+	background-color: #a0c2bf;
+	width: 130px;
+}
+
+.red-button {
+	background-color: crimson;
+}
+
+#form-delete-account button {
+	width: 100%;
+}
+
+form select {
+    margin: 12px 0px;
+    padding: 12px 20px;
+    display: block;
+    width: 100%;
+}
+
+/* FORM NAVIGATION FORMATTING */
+.navigate-buttons {
+	width: 100%;
+	overflow: overlay;
+}
+
+.step-container {
+	width: 100%;
+	text-align:center;
+	margin-top:10px;
+}
+
+.step {
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbbbbb;
+	border: none; 
+	border-radius: 50%;
+	display: inline-block;
+	opacity: 0.2;
+  }
+
+  .step.active {
+	opacity: 1;
+  }
+
+  #about.container > .container {
+	  min-height: 400px;
+  }
+
+  #about.container > p, #about.container > h2 {
+	  display: none;
+  }
+
+/* Popup */
+.popup {
+    display: none; /* triggered by buttons */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 10%;
+    overflow: auto;
+    background-color: rgb(170,170,170);
+	background-color: rgba(0,0,0,0.7);
+	margin-bottom: 200px;
+}
+
+.popup-content {
+    background-color: #f0f0f0;
+    margin: auto;
+    width: 60%;
+}
+
+.popup .close {
+    float: right;
+    color: #3b3a30;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin: 12px 20px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.popup p {
+    text-align: justify;
+}
+
+/* CHANGELOG FORMATTING */
+.changelog {
+    width: 0px; /* Changed with javascript*/
+    height: calc(100% - 100px);
+    position: fixed;
+    margin: 50px 0px;
+    z-index: 1;
+    top: 0px;
+    right: 0;
+    background-color: #434c3cd6;
+    overflow-x: hidden;
+    overflow-y: auto;
+	transition: 0.4s; 
+	display: block;
+}
+
+.changelog h2 {
+	color: #f0f0f0;
+}
+.changelog p {
+    display: block;
+    font-size: 16px;
+    background: none;
+    width:100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    margin: 0px;
+    color: #f0f0f0;
+    border: none;
+    clear: right;
+}
+
+#changelog-container {
+	display: none; /* Changed with javascript*/
+	padding-left:6px;
+    transition: 0.5s;
+}
+
+#changelog-button {
+    cursor: pointer;
+}
+
+#changelog-button:hover {
+    opacity: 0.8;
+}

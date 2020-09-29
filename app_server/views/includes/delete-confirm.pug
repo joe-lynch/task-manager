@@ -1,0 +1,8 @@
+#delete-confirm-popup.popup
+	form#delete-confirm-form.popup-content
+		//- Action path is set by js
+		#form-delete-account.container
+			h2 Are you sure?
+			button.button-main(type="reset" onclick="hide('delete-confirm-popup');") Cancel
+			button#delete_task.red-button(type="submit") Delete
+			div(style='clear: both;')

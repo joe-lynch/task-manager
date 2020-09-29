@@ -1,0 +1,133 @@
+extends layout
+
+block content
+ 
+	header
+		a#header-logo.logo(href='/') Doable
+		include ./includes/status.pug
+		ul.topnav
+			li.topnav.dropdown
+				a.dropbtn
+					| #{user.first_name}
+					i.fa.fa-angle-down
+				.dropdown-content
+					a(onclick="showPopup('user-details-popup')") Your Details
+					a(onclick="showPopup('change-email-popup')") Change Email
+					a(onclick="showPopup('change-password-popup')") Change Password
+					a(href='/logout') Log Out
+			li.topnav
+				a(onclick="launchAbout();") About
+	// SIDE NAV
+	#sidenav.sidenav  
+		.sidenav-button(onclick='sideNavPush(this)')
+			.bar1
+			.bar2
+			.bar3
+		#sidenav-menu.sidenav-menu
+			a.sidenav-dropdown
+				| Projects 
+				i.fa.fa-caret-down
+			.sidenav-dropdown-content
+				- var curr = 0
+				- for (var i=0; i<projects.length; i++){
+				-   if(projects[i].current == 1){
+				-     curr = i
+				-   }
+				- }
+				script.
+					set_this(#{projects.length})
+				-	for (var i=0; i<projects.length; ++i){
+				-		if (projects[i] != projects[curr]){
+							a(id=i) #{projects[i].project_name}
+				-		}
+				-		else{
+							a(id=i) #{projects[i].project_name}
+								i.fa.fa-ellipsis-h.edit-icon
+				-		}
+				-	}   
+				a(href='#' onclick="addProject()") + add project
+			a.sidenav-dropdown
+				| Users 
+				i.fa.fa-caret-down
+			.sidenav-dropdown-content
+				-	var arr = new Array()
+				-	if (!projects.length == 0)  {
+				-		for (var j=0; j<(projects[curr].project_users).length; ++j){
+				-			if(!arr.includes(projects[curr].project_users[j])){
+								a(href='#') #{projects[curr].project_users[j]}
+				-				arr.push(projects[curr].project_users[j])
+				-				console.log(projects[curr].project_users[j])
+				-			}
+				-		}
+				- 	}
+				- 	else { 
+						script.
+							showStatusBar("Add a project on the sidebar")
+				-		}
+	#changelog.changelog
+		#changelog-container
+			h2 Changelog 
+			p changelog text goes here
+	#main-window.main-window
+		- if (projects[0] != undefined){
+		section.kanban-column
+
+			h2.kanban-header
+				| To Do
+				span.kanban-add-card +
+			.kanban-card-container
+				- if (projects[0] != undefined){
+					script.
+						set_current_project('#{projects[curr]._id}')
+				-   for (var i=0; i<projects[curr].project_tasks.length; ++i){
+				-     if (projects[curr].project_tasks[i].task_index == 0){
+						article.kanban-card
+							h4.card-title #{projects[curr].project_tasks[i].task_name}
+				-     }
+				-   }
+				-}
+		section.kanban-column
+			h2.kanban-header
+				| In Progress
+				span.kanban-add-card +
+			.kanban-card-container
+				- if (projects[0] != undefined){
+				- 	for (var i=0; i<projects[curr].project_tasks.length; ++i){
+				-   	if (projects[curr].project_tasks[i].task_index == 1){
+							article.kanban-card
+								h4.card-title #{projects[curr].project_tasks[i].task_name}
+				-   	}
+				- 	}
+				- }
+		section.kanban-column
+			h2.kanban-header
+				| Done
+				span.kanban-add-card +
+			.kanban-card-container
+				- if (projects[0] != undefined){
+				-   for (var i=0; i<projects[curr].project_tasks.length; ++i){
+				-     if (projects[curr].project_tasks[i].task_index == 2){
+						article.kanban-card
+							h4.card-title #{projects[curr].project_tasks[i].task_name}
+				-     }
+				-   }
+				- }
+		- }
+		#user-details-popup.popup
+			form.popup-content(action='/update_account' method='POST')
+				// Close button
+				span.close(title='Close' onclick="hide('user-details-popup');")
+					| &times;
+				include ./includes/user-details.pug
+					button.button-main(type='submit') Save Details
+					button.red-button(type='button' onclick="hide('user-details-popup'); deleteConfirm1('/delete_account');") Delete Account
+					div(style='clear: both;')
+		include ./includes/task-details.pug
+		include ./includes/project-details.pug
+		include ./includes/change-password.pug
+		include ./includes/change-email.pug
+		include ./includes/about.pug
+		include ./includes/delete-confirm.pug
+	footer
+		h5.author Author: Group 35
+		h5#changelog-button(onclick='viewChangelog();') View Changelog
