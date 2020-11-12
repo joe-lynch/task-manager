@@ -29,10 +29,10 @@ header {
     background-color: #3b3a30;
     overflow: hidden;
     height: 50px;
-	padding: 0px 10px;
-	width: 100%;
-	display: inline-flex;
-	justify-content: space-between;
+    padding: 0px 10px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
 }
 
 #header-logo {
@@ -99,22 +99,22 @@ header {
 
 /* Status bar formatting */
 .status-bar {
-	margin: 5px;
-	padding: 10px;
-	height: 40px;
-	width: 50%;
-	min-width: 200px;
-	text-align: center;
-	border-radius: 1%;
-	background: rgba(170, 170, 170, 0.127);
-	color: #ff0000;
-	box-shadow: #d2d5cf;
-	display: none;
-	justify-content: center;
+    margin: 5px;
+    padding: 10px;
+    height: 40px;
+    width: 50%;
+    min-width: 200px;
+    text-align: center;
+    border-radius: 1%;
+    background: rgba(170, 170, 170, 0.127);
+    color: #ff0000;
+    box-shadow: #d2d5cf;
+    display: none;
+    justify-content: center;
 }
 
 .status-bar > p {
-	vertical-align: middle;
+    vertical-align: middle;
 }
 
 /* FOOTER FORMATTING */
@@ -166,11 +166,11 @@ label {
 }
 
 .expertise {
-	list-style-type: none;
+    list-style-type: none;
 }
 
 .expertise > li > input {
-	float: left;
+    float: left;
 }
 
 /* LAYOUT FORMATTING */
@@ -360,34 +360,34 @@ label {
 }
 
 fieldset {
-	border: none;
-	margin: 0;
-	padding: 0, 0, 0, 10px;
-	align-items: center;
+    border: none;
+    margin: 0;
+    padding: 0, 0, 0, 10px;
+    align-items: center;
 }
 
 
 fieldset > a {
-	padding-top: 0;
-	margin-top: 0;
-	margin-bottom: 10px;
-	text-align: left;
-	color:#a0c2bf;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: left;
+    color:#a0c2bf;
 }
 
 fieldset > .left {
-	float: left;
+    float: left;
 }
 
 fieldset > .right {
-	float: right;
+    float: right;
 }
 
 .edit-icon {
-	float: right;
-	padding-right: 5px;
-	cursor: pointer;
-	color: #f0f0f0;
+    float: right;
+    padding-right: 5px;
+    cursor: pointer;
+    color: #f0f0f0;
 }
 
 /* Rotate first bar */
@@ -461,26 +461,26 @@ form button {
 }
 
 .prev-button {
-	float: left;
-	margin-left: 10px;
+    float: left;
+    margin-left: 10px;
 }
 
 .next-button {
-	float: right;
-	margin-right: 10px;
+    float: right;
+    margin-right: 10px;
 }
 
 .button-main {
-	background-color: #a0c2bf;
-	width: 130px;
+    background-color: #a0c2bf;
+    width: 130px;
 }
 
 .red-button {
-	background-color: crimson;
+    background-color: crimson;
 }
 
 #form-delete-account button {
-	width: 100%;
+    width: 100%;
 }
 
 form select {
@@ -492,37 +492,37 @@ form select {
 
 /* FORM NAVIGATION FORMATTING */
 .navigate-buttons {
-	width: 100%;
-	overflow: overlay;
+    width: 100%;
+    overflow: overlay;
 }
 
 .step-container {
-	width: 100%;
-	text-align:center;
-	margin-top:10px;
+    width: 100%;
+    text-align:center;
+    margin-top:10px;
 }
 
 .step {
-	height: 15px;
-	width: 15px;
-	margin: 0 2px;
-	background-color: #bbbbbb;
-	border: none; 
-	border-radius: 50%;
-	display: inline-block;
-	opacity: 0.2;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none; 
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.2;
   }
 
   .step.active {
-	opacity: 1;
+    opacity: 1;
   }
 
   #about.container > .container {
-	  min-height: 400px;
+      min-height: 400px;
   }
 
   #about.container > p, #about.container > h2 {
-	  display: none;
+      display: none;
   }
 
 /* Popup */
@@ -537,8 +537,8 @@ form select {
     padding-top: 10%;
     overflow: auto;
     background-color: rgb(170,170,170);
-	background-color: rgba(0,0,0,0.7);
-	margin-bottom: 200px;
+    background-color: rgba(0,0,0,0.7);
+    margin-bottom: 200px;
 }
 
 .popup-content {
@@ -573,12 +573,12 @@ form select {
     background-color: #434c3cd6;
     overflow-x: hidden;
     overflow-y: auto;
-	transition: 0.4s; 
-	display: block;
+    transition: 0.4s; 
+    display: block;
 }
 
 .changelog h2 {
-	color: #f0f0f0;
+    color: #f0f0f0;
 }
 .changelog p {
     display: block;
@@ -596,8 +596,8 @@ form select {
 }
 
 #changelog-container {
-	display: none; /* Changed with javascript*/
-	padding-left:6px;
+    display: none; /* Changed with javascript*/
+    padding-left:6px;
     transition: 0.5s;
 }
 

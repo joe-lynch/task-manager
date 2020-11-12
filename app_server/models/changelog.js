@@ -7,25 +7,25 @@ const Changelog = new Schema({
       type: String
     },
 
-	timestamp: { 
+    timestamp: { 
       type: String
-	},
+    },
 
-	action: {
-		type: String
-	},
-	// To be stringified
-	oldValue: {
-		type: String
-	},
-	
-	newValue: {
-		type: String
-	},
+    action: {
+        type: String
+    },
+    // To be stringified
+    oldValue: {
+        type: String
+    },
+    
+    newValue: {
+        type: String
+    },
 
-	description: { 
-		type: String
-	  }
+    description: { 
+        type: String
+      }
 
 });
 

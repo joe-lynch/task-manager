@@ -33,7 +33,7 @@ router.post('/update_task', controller_project.update_task);
 router.post('/delete_task', controller_project.delete_task);
 router.post('/update_task_index', controller_project.update_task_index);
 router.post('/assign_task', [
-	controller_project.assign_task
+    controller_project.assign_task
 ]);
 router.get('/get_task_info', controller_project.get_task_info);
 /* account handlers */

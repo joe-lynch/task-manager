@@ -1,65 +1,65 @@
 #about-popup.popup
-	.popup-content
-		// Close button
-		span.close(title='Close' onclick="closeAbout();")
-			| &times;
-		#about.container
-			.container
-				h2 1. Architecture
-				p  
-				| This web application was designed following the Model-View-Controllers architecture using the MEAN stack to implement. 
-				| Any files related to the templating engine  are located within the views directory, files relating to database/data 
-				| functionality is within the model directory and the controllers glues together the models and views and stored within 
-				| the controller directory. The Node.js framework was used where MongoDB was used for persistance and Express as the web server. 
-				| We didn't utilise Angular. Similarly, we didn't utilise any libraries e.g. Bootstrap, React etc. to develop the front-end. 
-				| We implemented it all in HTML5, CSS and JS. Our application uses mLab as the external Database as a Service provider and Heroku 
-				| as the cloud platform provider. Both these providers offer free-tier services which is ideal for university projects.
+    .popup-content
+        // Close button
+        span.close(title='Close' onclick="closeAbout();")
+            | &times;
+        #about.container
+            .container
+                h2 1. Architecture
+                p  
+                | This web application was designed following the Model-View-Controllers architecture using the MEAN stack to implement. 
+                | Any files related to the templating engine  are located within the views directory, files relating to database/data 
+                | functionality is within the model directory and the controllers glues together the models and views and stored within 
+                | the controller directory. The Node.js framework was used where MongoDB was used for persistance and Express as the web server. 
+                | We didn't utilise Angular. Similarly, we didn't utilise any libraries e.g. Bootstrap, React etc. to develop the front-end. 
+                | We implemented it all in HTML5, CSS and JS. Our application uses mLab as the external Database as a Service provider and Heroku 
+                | as the cloud platform provider. Both these providers offer free-tier services which is ideal for university projects.
 
-			.container
-				h2 2. Test Strategy
-				p 
-				| We used various strategies to test and validate the features and underlying data stored in our application. Front-end validation in terms 
-				| of both JavaScript and HTML5 was used on the signup, project and task forms e.g. mobile numbers must have 10 digits, email address is valid, 
-				| one expertise was selected etc. We also used back-end validation so that invalid data isn't stored. This was achieved through Mongoose Schemas 
-				| and the built-in validators such as required, match, maxlength etc. Also, as validators are disabled by default on update operations e.g. $set, 
-				| we enabled these validators by setting the runValidators option to true.
-				br
-				p
-				| We've designed 2 test suites that test different aspects of the application. One test suite looks at MongoDB and storing and retrieving data and
-				| also ensuring Schema validation is being applied. The other test suite tests routing by making GET and POST requests. These test suites used Mocha, 
-				| Chai and the request package. All 12 tests passed achieving 100% success.
-			.container
-				h2 3. Algorithm
-				p 
-				| The algorithm will suggest a suitable user for the selected task based on their expertise defined within their profile. Where multiple users has the same skills
-				| required for the task, the algorithm will place a higher priority with the users that have a ligher workload i.e. the algorithm sums up the effort in hours for 
-				| each task they've been assigned and sorts the list in ascending order. The algorithm will also suggest a task commencement date based on whether dependancies for the task exist.
-			.container
-				h2 4. About Us
-				p 
-				| This website is a simple task management system where a user can see all the tasks in a Kanban board format. The user can filter their tasks by project and also see tasks within 
-				| these projects which have been assigned to other users.
-				br
-				p
-				| Users can drag and drop tasks between the Kanban board columns to reflect a task's progress, and they can also manually re-order tasks to reflect execution order/priorities. 
-				| Additionally, tasks are allocated a priority when are created. 
-				| br
-				h3 The team: 
-				p Jason Seotis #21877352 | Joshua Ellis #20914431 | Joe Lynch #22288396
-			.container
-				h2 5. References
-				p Logo made with vectr.com: https://vectr.com/jdjellis/b28o4NacD0
-				p Raleway font: https://fonts.google.com/specimen/Raleway
-				p Logo font - Satisfy: https://fonts.google.com/specimen/Satisfy
-				p Icons: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
-				p Form tutorials: w3schools.com
-			#about-nav.navigate-buttons
-				button.button-main.prev-button(onclick="navigateAbout(-1);") Previous
-				button.button-main.next-button(onclick="navigateAbout(1);") Next
-			.step-container
-				span(class="step")
-				span(class="step")
-				span(class="step")
-				span(class="step")
-				span(class="step")
-			div(style='clear: both;')
+            .container
+                h2 2. Test Strategy
+                p 
+                | We used various strategies to test and validate the features and underlying data stored in our application. Front-end validation in terms 
+                | of both JavaScript and HTML5 was used on the signup, project and task forms e.g. mobile numbers must have 10 digits, email address is valid, 
+                | one expertise was selected etc. We also used back-end validation so that invalid data isn't stored. This was achieved through Mongoose Schemas 
+                | and the built-in validators such as required, match, maxlength etc. Also, as validators are disabled by default on update operations e.g. $set, 
+                | we enabled these validators by setting the runValidators option to true.
+                br
+                p
+                | We've designed 2 test suites that test different aspects of the application. One test suite looks at MongoDB and storing and retrieving data and
+                | also ensuring Schema validation is being applied. The other test suite tests routing by making GET and POST requests. These test suites used Mocha, 
+                | Chai and the request package. All 12 tests passed achieving 100% success.
+            .container
+                h2 3. Algorithm
+                p 
+                | The algorithm will suggest a suitable user for the selected task based on their expertise defined within their profile. Where multiple users has the same skills
+                | required for the task, the algorithm will place a higher priority with the users that have a ligher workload i.e. the algorithm sums up the effort in hours for 
+                | each task they've been assigned and sorts the list in ascending order. The algorithm will also suggest a task commencement date based on whether dependancies for the task exist.
+            .container
+                h2 4. About Us
+                p 
+                | This website is a simple task management system where a user can see all the tasks in a Kanban board format. The user can filter their tasks by project and also see tasks within 
+                | these projects which have been assigned to other users.
+                br
+                p
+                | Users can drag and drop tasks between the Kanban board columns to reflect a task's progress, and they can also manually re-order tasks to reflect execution order/priorities. 
+                | Additionally, tasks are allocated a priority when are created. 
+                | br
+                h3 The team: 
+                p Jason Seotis #21877352 | Joshua Ellis #20914431 | Joe Lynch #22288396
+            .container
+                h2 5. References
+                p Logo made with vectr.com: https://vectr.com/jdjellis/b28o4NacD0
+                p Raleway font: https://fonts.google.com/specimen/Raleway
+                p Logo font - Satisfy: https://fonts.google.com/specimen/Satisfy
+                p Icons: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+                p Form tutorials: w3schools.com
+            #about-nav.navigate-buttons
+                button.button-main.prev-button(onclick="navigateAbout(-1);") Previous
+                button.button-main.next-button(onclick="navigateAbout(1);") Next
+            .step-container
+                span(class="step")
+                span(class="step")
+                span(class="step")
+                span(class="step")
+                span(class="step")
+            div(style='clear: both;')

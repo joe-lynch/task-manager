@@ -1,68 +1,68 @@
 extends layout
 
 block content
-	header
-		a#header-logo.logo(href='/') Doable
-		include ./includes/status.pug
-		ul.topnav
-			li.topnav
-			a(onclick="launchAbout();") About
-	// Logo + Login/Register buttons
-	.landing-container.centred
-		section.text-centre
-			h1#landing-logo.text-centre.logo Doable
-		section.text-centre
-			if (!user)
-				button#register(onclick="showPopup('rego-popup'); hide('form-user-details');") Sign Up
-				button#login(onclick="showPopup('login-popup');") Login
-			else
-				a(href='/project')
-					button#Dashboard(type='button') Dashboard
+    header
+        a#header-logo.logo(href='/') Doable
+        include ./includes/status.pug
+        ul.topnav
+            li.topnav
+            a(onclick="launchAbout();") About
+    // Logo + Login/Register buttons
+    .landing-container.centred
+        section.text-centre
+            h1#landing-logo.text-centre.logo Doable
+        section.text-centre
+            if (!user)
+                button#register(onclick="showPopup('rego-popup'); hide('form-user-details');") Sign Up
+                button#login(onclick="showPopup('login-popup');") Login
+            else
+                a(href='/project')
+                    button#Dashboard(type='button') Dashboard
 
-	// Pop-up forms
-	// Log in form
-	#login-popup.popup
-		form.popup-content(action='/login' method='POST')
-			// Close button
-			span.close(title='Close' onclick="hide('login-popup'); show('form-register');")
-				| &times;
-			.container
-				h2 Log In
-				label(for='mail2') Email Address
-				input#mail2(type='email' placeholder='example@domain.com' name='email' required='')
-				label(for='pword') Password
-				input(type='password' placeholder='Enter password' name='password' required='')
-				input.remember(name='remember' type='checkbox' checked='checked')
-				|  Remember me
-				button.button-main(type='submit') Login
-				div(style='clear: both;')
-	// Registration form
-	#rego-popup.popup
-		form.popup-content(action='/register' onsubmit='return validate_expertise()' method='POST')
-			// Close button
-			span.close(title='Close' onclick="hide('rego-popup'); show('form-register'); hide('form-user-details');")
-				| &times;
-			#form-register.container
-				h2 Sign Up
-				.text-centre
-					h5#pword-error-text(style={'color': 'red'})
-				label(for='mail1') Email Address
-				input#mail1(type='email' placeholder='example@domain.com' name='email' required='')
-				label(for='pword') Password
-				input#pword(type='password' placeholder='Enter password (8 alphanumberic characters or more)' name='password' required='' pattern='[a-zA-Z0-9]{8,}')
-				label(for='rpword') Repeat Password
-				input#rpword(type='password' placeholder='Repeat password' name='rpword' required='')
-				input.remember(name='remember' type='checkbox' checked='checked')
-				label
-				|  Remember me
-				button.button-main(id='reg-button' type='button' onclick="validate_passwords();") Register
-				div(style='clear: both;')
-			include ./includes/user-details.pug
-				button.button-main(type='submit') Save Details
-				div(style='clear: both;')
-	if (show_popup)
-		script.
-			showPopup('#{show_popup}')
-	include ./includes/about.pug
-	footer
-		h5.author Author: Group 35
+    // Pop-up forms
+    // Log in form
+    #login-popup.popup
+        form.popup-content(action='/login' method='POST')
+            // Close button
+            span.close(title='Close' onclick="hide('login-popup'); show('form-register');")
+                | &times;
+            .container
+                h2 Log In
+                label(for='mail2') Email Address
+                input#mail2(type='email' placeholder='example@domain.com' name='email' required='')
+                label(for='pword') Password
+                input(type='password' placeholder='Enter password' name='password' required='')
+                input.remember(name='remember' type='checkbox' checked='checked')
+                |  Remember me
+                button.button-main(type='submit') Login
+                div(style='clear: both;')
+    // Registration form
+    #rego-popup.popup
+        form.popup-content(action='/register' onsubmit='return validate_expertise()' method='POST')
+            // Close button
+            span.close(title='Close' onclick="hide('rego-popup'); show('form-register'); hide('form-user-details');")
+                | &times;
+            #form-register.container
+                h2 Sign Up
+                .text-centre
+                    h5#pword-error-text(style={'color': 'red'})
+                label(for='mail1') Email Address
+                input#mail1(type='email' placeholder='example@domain.com' name='email' required='')
+                label(for='pword') Password
+                input#pword(type='password' placeholder='Enter password (8 alphanumberic characters or more)' name='password' required='' pattern='[a-zA-Z0-9]{8,}')
+                label(for='rpword') Repeat Password
+                input#rpword(type='password' placeholder='Repeat password' name='rpword' required='')
+                input.remember(name='remember' type='checkbox' checked='checked')
+                label
+                |  Remember me
+                button.button-main(id='reg-button' type='button' onclick="validate_passwords();") Register
+                div(style='clear: both;')
+            include ./includes/user-details.pug
+                button.button-main(type='submit') Save Details
+                div(style='clear: both;')
+    if (show_popup)
+        script.
+            showPopup('#{show_popup}')
+    include ./includes/about.pug
+    footer
+        h5.author Author: Group 35

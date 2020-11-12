@@ -59,14 +59,14 @@ onload = function(){
                 console.log(data);
                 $("#task-name").val(data[0]);
                 $("#task-description").val(data[1]);
-	            var checkBoxes = new Array('#cb_2', '#cb_3', '#cb_4', '#cb_5', '#cb_6');
-	            for(var i=0; i<checkBoxes.length; i++){
-	            	$(checkBoxes[i]).prop('checked', false);
-	                if ($(checkBoxes[i]).val() == data[2]){
-	                    $(checkBoxes[i]).prop('checked', true);
-	                }
-	            }
-               	$("#assigned-to input").val(data[3]);
+                var checkBoxes = new Array('#cb_2', '#cb_3', '#cb_4', '#cb_5', '#cb_6');
+                for(var i=0; i<checkBoxes.length; i++){
+                    $(checkBoxes[i]).prop('checked', false);
+                    if ($(checkBoxes[i]).val() == data[2]){
+                        $(checkBoxes[i]).prop('checked', true);
+                    }
+                }
+                $("#assigned-to input").val(data[3]);
                 $("#task-due-date").val(data[4]);
                 $("#priority").val(data[5]);
                 $("#estimate").val(data[7]);
@@ -92,11 +92,11 @@ onload = function(){
         containers[co].setAttribute("id","column"+co); // have to set card Ids as a reference for dragging
     }
     
-	//* Add card buttons - listeners *//
-	var addCardBtns = document.getElementsByClassName("kanban-add-card");
-	var addCardBtn;
-	for (addCardBtn = 0; addCardBtn < addCardBtns.length; addCardBtn++) {
-		addCardBtns[addCardBtn].addEventListener("click", function() {
+    //* Add card buttons - listeners *//
+    var addCardBtns = document.getElementsByClassName("kanban-add-card");
+    var addCardBtn;
+    for (addCardBtn = 0; addCardBtn < addCardBtns.length; addCardBtn++) {
+        addCardBtns[addCardBtn].addEventListener("click", function() {
             ignore_duplicate = new Array();
             $('#task-name,#task-description,#required-skills,#task-due-date,'+
             '#priority,#dependencies,#estimate').val("");
@@ -109,20 +109,20 @@ onload = function(){
 
             addCard();
      });
-	}
-	
-	//* Add project + user listeners *//
-	// $('#mydiv').on('click', '*', editProject())
+    }
+    
+    //* Add project + user listeners *//
+    // $('#mydiv').on('click', '*', editProject())
 
-	//* ADD STATUS BAR FUNCTIONALITY *//
+    //* ADD STATUS BAR FUNCTIONALITY *//
   var error = document.getElementById('status-bar-error')
   if(error) {
     var statusBar = document.getElementsByClassName('status-bar')[0];
-		statusBar.innerHTML = error.innerHTML;
-		statusBar.style.display = 'inline-block';
-		setTimeout(function() {
-			statusBar.style.display = 'none';
-		}, 5000);
+        statusBar.innerHTML = error.innerHTML;
+        statusBar.style.display = 'inline-block';
+        setTimeout(function() {
+            statusBar.style.display = 'none';
+        }, 5000);
   }
 
   /* add logic so you can press enter on rpword field to proceed to sign up modal */
@@ -137,23 +137,23 @@ onload = function(){
         $.post("/delete_task")
     })
 */
-	// PROJECT DETAILS
-	var arr= new Array();
-	for(var i=0; i<len; i++){
-		arr.push("#"+i);
-	}
+    // PROJECT DETAILS
+    var arr= new Array();
+    for(var i=0; i<len; i++){
+        arr.push("#"+i);
+    }
 
-	$.each(arr, function(key, value) {
-		$(value).click(function() {
-			$.post("/current_project", "project_name="+$(value)[0].innerText);
-			location.reload(true);
-			//window.location.search = jQuery.query.set("project_name", $(value)[0].innerHTML);
-		});
-	});
+    $.each(arr, function(key, value) {
+        $(value).click(function() {
+            $.post("/current_project", "project_name="+$(value)[0].innerText);
+            location.reload(true);
+            //window.location.search = jQuery.query.set("project_name", $(value)[0].innerHTML);
+        });
+    });
 
     $("#suggest").click(function(){
 
-     	$('#assigned-to input').focus();
+        $('#assigned-to input').focus();
         var parent_project = get_current_project();
         var checkBoxes = new Array('#cb_2', '#cb_3', '#cb_4', '#cb_5', '#cb_6');
         var task_expertise = new Array();
@@ -166,12 +166,12 @@ onload = function(){
             var data = JSON.parse(data);
             console.log(data);
             if(data.length == 0){
-            	$('#assigned-to input').attr('placeholder', 'Suggested users will list below if available!').val("").focus();
+                $('#assigned-to input').attr('placeholder', 'Suggested users will list below if available!').val("").focus();
             }
             else{
-            	$('#assigned-to input').attr('placeholder', 'Suggested users are listed below!').val("").focus();
+                $('#assigned-to input').attr('placeholder', 'Suggested users are listed below!').val("").focus();
             }
-           	$('#assign-users').empty();
+            $('#assign-users').empty();
             for(var i=0; i<data.length;i++){
                 $('#assign-users').append("<option value='" + data[i] + "'>");
             }
@@ -181,12 +181,12 @@ onload = function(){
 }
 
 function showStatusBar(message2) {
-		document.getElementById('status-bar-message').innerHTML = message2;
-		var statusBar = document.getElementsByClassName('status-bar')[0];
-		statusBar.style.display = 'inline-block';
-		setTimeout(function() {
-			statusBar.style.display = 'none';
-		}, 5000);
+        document.getElementById('status-bar-message').innerHTML = message2;
+        var statusBar = document.getElementsByClassName('status-bar')[0];
+        statusBar.style.display = 'inline-block';
+        setTimeout(function() {
+            statusBar.style.display = 'none';
+        }, 5000);
 }
 
 function set_this(s){
